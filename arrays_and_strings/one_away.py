@@ -6,7 +6,22 @@ def one_away(s1, s2):
     initial_count = abs(len(s1) - len(s2))
     if initial_count > 1:
         return False
-    for i in range(len(s1)):
-        if s1[i] != s2[i]:
-            initial_count += 1
-    return True if initial_count < 2 else False
+    p1, p2 = 0, 0
+    madeEdit = False
+
+    while p1 < len(s1) and p2 < len(s2):
+        if s1[p1] == s2[p2]:
+            p1 += 1
+            p2 += 1
+        elif not madeEdit:
+            madeEdit = True
+            if len(s1) == len(s2):
+                p1 += 1
+                p2 += 1
+            elif len(s1) < len(s2):
+                p2 += 1
+            else:
+                p1 += 1
+        else:
+            return False
+    return True
