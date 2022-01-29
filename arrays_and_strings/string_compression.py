@@ -11,4 +11,4 @@ def compress(string):
             length = 0
         length += 1
     result_list.append(string[len(string) - 1] + str(length))
-    return "".join(result_list)
+    return "".join(result_list) if len(result_list) < len(string) else string
