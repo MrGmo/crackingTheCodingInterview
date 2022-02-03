@@ -2,7 +2,6 @@
 
 # Time: O(n), Space: O(n)
 
-
 def removeDuplicates(head):
     if head is None:
         return head
